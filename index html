@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Starveil - Astrology Dating</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #1a0933, #000);
+      color: white;
+      margin: 0;
+      text-align: center;
+    }
+    header {
+      padding: 20px;
+      font-size: 24px;
+      background: #4b0082;
+    }
+    .profile {
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
+      margin: 20px;
+      padding: 20px;
+    }
+    .button {
+      background: #ff6f91;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      margin-top: 10px;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .button:hover {
+      background: #ff4f71;
+    }
+  </style>
+</head>
+<body>
+
+<header>🌌 Starveil - Find Love Written in the Stars</header>
+
+<h2>Enter Your Birth Details</h2>
+<form id="birthForm">
+  <input type="text" placeholder="Name" required><br><br>
+  <input type="date" required><br><br>
+  <input type="time" required><br><br>
+  <input type="text" placeholder="Birth City" required><br><br>
+  <button type="submit" class="button">Generate Matches</button>
+</form>
+
+<div id="matches"></div>
+
+<script>
+  const matches = [
+    {name: "Alex", description: "Energetic and caring, aligns with your moon sign."},
+    {name: "Sam", description: "Creative soul, perfect for your rising sign."},
+    {name: "Jamie", description: "Grounded personality matching your Venus."}
+  ];
+
+  document.getElementById("birthForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    let output = "<h2>Your Matches</h2>";
+    matches.forEach(m => {
+      output += `<div class='profile'><h3>${m.name}</h3><p>${m.description}</p>
+      <button class='button'>Message</button></div>`;
+    });
+    document.getElementById("matches").innerHTML = output;
+  });
+</script>
+
+</body>
+</html>
